@@ -6,7 +6,6 @@ Created on Fri Jun 11 19:47:10 2021
 """
 
 print('Please think of a number between 0 and 100!')
-print('Please think of a number between 0 and 100!')
 x = 100
 low = 0
 high = x
@@ -14,7 +13,8 @@ ans = int((low + high)/2)
 while abs(ans - x) >= 0:
     print('Is your secret number ' + str(ans) + '?')
     print("Enter 'h' to indicate the guess is too high. \
-     Enter 'l' to indicate the guess is too low. Enter 'c' to indicate I guessed correctly.")
+Enter 'l' to indicate the guess is too low. \
+              Enter 'c' to indicate I guessed correctly.", end=' ')
     s = str(input(''))
     if s == 'h':
         high = ans
