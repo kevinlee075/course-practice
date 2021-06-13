@@ -17,10 +17,8 @@ def isIn(char, aStr):
     if char == mid:
         return True
     elif char < mid:
-        x = aStr[:mid_index+1]
-        return isIn(char, x)
+        return isIn(char, aStr[:mid_index-1])
     elif char > mid:
-        x = aStr[mid_index+1:]
-        return isIn(char, x)
+        return isIn(char, aStr[mid_index:])
     else:
         return False
