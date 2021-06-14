@@ -5,20 +5,18 @@ Created on Fri Jun 11 19:47:10 2021
 @author: Lenovo
 """
 
-def isIn(char, aStr):
-    '''
-    char: a single character
-    aStr: an alphabetized string
+import math
+n = int(input('Number of sides = '))
+s = float(input('length of polygon = '))
+def tan_1(n):
+    return math.tan(math.pi/n)
+def area_polygon(n, s):
+    return 0.25 * n * s * s // tan_1(n)
+def perimeter_polygon(n, s):
+    return s * n
+def polysum(n, s):
+    polysum = area_polygon(n, s) + perimeter_polygon(n, s) * perimeter_polygon(n, s)
+    return polysum
+
+
     
-    returns: True if char is in aStr; False otherwise
-    '''
-    mid_index = len(aStr)//2
-    mid = aStr[mid_index]
-    if char == mid:
-        return True
-    elif char < mid:
-        return isIn(char, aStr[:mid_index-1])
-    elif char > mid:
-        return isIn(char, aStr[mid_index:])
-    else:
-        return False
