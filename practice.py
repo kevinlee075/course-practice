@@ -5,24 +5,20 @@ Created on Fri Jun 11 19:47:10 2021
 @author: Lenovo
 """
 
-animals = { 'a': ['aardvark'], 'b': ['baboon'], 'c': ['coati']}
-animals['d'] = ['donkey']
-animals['d'].append('dog')
-animals['d'].append('dingo')
-
-def biggest(aDict):
+def closest_power(base, num):
     '''
-    aDict: A dictionary, where all the values are lists.
-
-    returns: The key with the largest number of values associated with it
+    base: base of the exponential, integer > 1
+    num: number you want to be closest to, integer > 0
+    Find the integer exponent such that base**exponent is closest to num.
+    Note that the base**exponent may be either greater or smaller than num.
+    In case of a tie, return the smaller value.
+    Returns the exponent.
     '''
-    x = None
-    biggestvalue = 0
-    Key = aDict.keys()
-    for i in Key:
-        if len(aDict[i]) > biggestvalue:
-            x = i
-            biggestvalue = len(aDict[i])
-    return x
-
-print(biggest(animals))
+    expon = 0
+    while base ** expon < num:
+        expon += 1
+    if abs(num - base ** expon) >= abs(num - base ** (expon-1)):
+        result = expon - 1
+    else:
+        result = expon
+    return result
